@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    | write post
+{%endblock%}
+{% block content %}
+
+    <!-- breadcrumb-area start -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb_box text-center">
+                        <!-- <h2 class="breadcrumb-title">@@title</h2> -->
+                        <!-- breadcrumb-list start -->
+                        <ul class="breadcrumb-list">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active">Post</li>
+                        </ul>
+                        <!-- breadcrumb-list end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb-area end -->
+
+    <!-- alert area -->
+    {% include '_partials/_alert.html' %}
+    <div id="main-wrapper">
+        <div class="site-wrapper-reveal">
+
+            <div class="share-your-thinking-area section-space--ptb_80">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="share-thinking-title">
+                                <h2 class="title">Share Your Thinking</h2>
+                            </div>
+                        </div>
+                    </div>
+                  <form  action="{% url 'publish' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="title-write">
+                                <p>Write Your Title</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="write-content-box">
+                                <input type="text" class="form-control" name="title" value="Write Your Title">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="title-write">
+                                <p>Description</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="write-content-box">
+                                <textarea name="description" rows="8" class="form-control" placeholder="description" cols="80"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="title-write">
+                                <p>Tags</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="write-content-box">
+                                <div class="post-write-tag ">
+                                  <select class="form-select text-dark form-select" name="tag"  aria-label="Default select example">
+                                      <option selected>Open this select menu</option>
+                                      <option value="design">Design</option>
+                                      <option value="technology">Technology</option>
+                                      <option value="business">Business</option>
+                                      <option value="marketing">Marketing</option>
+                                      <option value="company">Company</option>
+                                      <option value="creative">Creative</option>
+                                  </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="title-write">
+                                <p>Content Privacy</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="conditon-buttom-wrap">
+                                <p class="conditon-note"><span class="title">Note:</span> Printing and typesetting industry lorem Ipsum has been the standard
+                                    dummy text ever since the 1500s when anden book.</p>
+
+                                <div class="button-box">
+                                    <!-- <a href="#" class="btn-large btn-primary">Publish Now <i class="icofont-long-arrow-right"></i></a> -->
+                                    <input type="submit" class="btn-large btn-primary" name="submit" value="Publish Now =>"/>
+                                </div>
+                  </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
